@@ -8,10 +8,23 @@
     <Authors>Michael Samteladze</Authors>
     <Company>63BITS</Company>
     <PackageIcon>logo.jpg</PackageIcon>
+    <Title>63BITS.Libraries.Converters</Title>
+    <Description>C# library that currencly includes "Number to Words" and "Price to Words" converters.</Description>
+    <PackageProjectUrl>https://github.com/MichaelSamteladze/SixtyThreeBits.Libraries.Converters</PackageProjectUrl>
+    <RepositoryType>https://github.com/MichaelSamteladze/SixtyThreeBits.Libraries.Converters.git</RepositoryType>
+    <PackageTags>C#</PackageTags>
+    <PackageId>63BITS.Libraries.Converters</PackageId>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/MichaelSamteladze/SixtyThreeBits.Libraries.Converters</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>	  
   </PropertyGroup>
 
   <ItemGroup>
     <None Include="..\logo.jpg">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>

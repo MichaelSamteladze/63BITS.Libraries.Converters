@@ -1,6 +1,6 @@
 ﻿# Number to Words Converter and Price to Words Converter
 C# library **SixtyThreeBits.Libraries.Converters**  that currencly includes "Number to Words" and "Price to Words" converters. 
-You can install it as [a nuget package](https://nuget.org/). This library is dependency free.
+You can install it as nuget package **63BITS.Libraries.Converters**. This library is dependency free.
 
 Number to Words Converter supports three languages:
 1. English

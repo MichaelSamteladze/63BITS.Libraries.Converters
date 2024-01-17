@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
-using static SixtyThreeBits.Libraries.Converters.Enums;
+using SixtyThreeBits.Libraries.Converters.Enums;
 
 namespace SixtyThreeBits.Libraries
 {
@@ -217,39 +217,39 @@ namespace SixtyThreeBits.Libraries
         /// <summary>
         /// Converts number to words
         /// </summary>
-        /// <param name="inputString">Numeric string up to length 18</param>
+        /// <param name="inputNumber">Numeric string up to length 18</param>
         /// <param name="language">Georgian, English or Russian</param>
         /// <returns>Number as words</returns>
-        public static string? ConvertNumberToWords(string? inputString, Language language)
+        public static string? ConvertNumberToWords(string? inputNumber, Language language)
         {
             bool isNegative = false;
             string? textMinus = default;
 
-            if (inputString == null)
+            if (inputNumber == null)
             {
                 return null;
             }
 
             long valueValidator;
-            if(!long.TryParse(inputString, out valueValidator))
+            if(!long.TryParse(inputNumber, out valueValidator))
             {
-                return null;
+                throw new Exception($"inputNumber: \"{inputNumber}\" is not a numeric value");
             }
 
-            if (inputString.StartsWith('-'))
+            if (inputNumber.StartsWith('-'))
             {
                 isNegative = true;
                 textMinus = dictionaryMinus[language];
-                inputString = inputString.Remove(0, 1);
+                inputNumber = inputNumber.Remove(0, 1);
             }
 
-            if (inputString.Length > 18)
+            if (inputNumber.Length > 18)
             {
-                throw new Exception("Numeric overflow - only up to 18 length numbers are allowed");
+                throw new Exception("Numeric overflow - limit of highest quadrillion number, 999'999'999'999'999'999 is exceeded");
             }
 
             var translated = new StringBuilder();
-            char[] backwardPosition = inputString.ToCharArray();
+            char[] backwardPosition = inputNumber.ToCharArray();
             char[] forwardPosition = new char[18];
             for (int i = 0; i < forwardPosition.Length; i++)
             {
@@ -1404,6 +1404,18 @@ namespace SixtyThreeBits.Libraries
         /// <param name="language">Language to use</param>
         /// <param name="shouldInlcudeFractionAsWords">Weather fraction part should also be translated to words or not</param>
         /// <returns>Number in words</returns>
+        public static string? ConvertNumberToWords(this int inputNumber, Language language)
+        {
+            return NumberToWordsConverter.ConvertNumberToWords(inputNumber.ToString(), language);
+        }
+
+        /// <summary>
+        /// Convert number in words
+        /// </summary>
+        /// <param name="inputNumber">Numeric value 18 registry long max</param>
+        /// <param name="language">Language to use</param>
+        /// <param name="shouldInlcudeFractionAsWords">Weather fraction part should also be translated to words or not</param>
+        /// <returns>Number in words</returns>
         public static string? ConvertNumberToWords(this int? inputNumber, Language language)
         {
             return NumberToWordsConverter.ConvertNumberToWords(inputNumber.ToString(), language);
@@ -1416,7 +1428,31 @@ namespace SixtyThreeBits.Libraries
         /// <param name="language">Language to use</param>
         /// <param name="shouldInlcudeFractionAsWords">Weather fraction part should also be translated to words or not</param>
         /// <returns>Number in words</returns>
+        public static string? ConvertNumberToWords(this long inputNumber, Language language)
+        {
+            return NumberToWordsConverter.ConvertNumberToWords(inputNumber.ToString(), language);
+        }
+
+        /// <summary>
+        /// Convert number in words
+        /// </summary>
+        /// <param name="inputNumber">Numeric value 18 registry long max</param>
+        /// <param name="language">Language to use</param>
+        /// <param name="shouldInlcudeFractionAsWords">Weather fraction part should also be translated to words or not</param>
+        /// <returns>Number in words</returns>
         public static string? ConvertNumberToWords(this long? inputNumber, Language language)
+        {
+            return NumberToWordsConverter.ConvertNumberToWords(inputNumber.ToString(), language);
+        }
+
+        /// <summary>
+        /// Convert number in words
+        /// </summary>
+        /// <param name="inputNumber">Numeric value 18 registry long max</param>
+        /// <param name="language">Language to use</param>
+        /// <param name="shouldInlcudeFractionAsWords">Weather fraction part should also be translated to words or not</param>
+        /// <returns>Number in words</returns>
+        public static string? ConvertNumberToWords(this byte inputNumber, Language language)
         {
             return NumberToWordsConverter.ConvertNumberToWords(inputNumber.ToString(), language);
         }

@@ -1,5 +1,5 @@
 ﻿using System.Text.RegularExpressions;
-using static SixtyThreeBits.Libraries.Converters.Enums;
+using SixtyThreeBits.Libraries.Converters.Enums;
 
 namespace SixtyThreeBits.Libraries.Converters.Tests.NumberToWordsConverterTests
 {
@@ -122,11 +122,12 @@ namespace SixtyThreeBits.Libraries.Converters.Tests.NumberToWordsConverterTests
         [DataRow("202 083 904 731 000 000", "двести два квартальена восемьдесят три триллиона девятьсот четыре миллиарда семьсот тридцать один миллион")]
         [DataRow("433 141 031 118 070 080", "четыреста тридцать три квартальена сто сорок один триллион тридцать один миллиард сто восемнадцать миллионов семьдесят тысяч восемьдесят")]
         [DataRow("716 813 915 111 618 919", "семьсот шестнадцать квартальенов восемьсот тринадцать триллионов девятьсот пятнадцать миллиардов сто одиннадцать миллионов шестьсот восемнадцать тысяч девятьсот девятнадцать")]
+        [DataRow("-1970", "минус одна тысяча семьдесят")]
         #endregion
         public void Test(string inputString, string expectedResult)
         {
             inputString = Regex.Replace(inputString, @"\s+", "");
-            var result = NumberToWordsConverter.ConvertNumberToWords(inputString: inputString, language: Language.Russian);
+            var result = NumberToWordsConverter.ConvertNumberToWords(inputNumber: inputString, language: Language.Russian);
             Assert.AreEqual(expected: expectedResult, actual: result);
         }
     }

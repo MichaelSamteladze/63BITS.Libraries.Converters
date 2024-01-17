@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
-using static SixtyThreeBits.Libraries.Converters.Enums;
+using SixtyThreeBits.Libraries.Converters.Enums;
 
 namespace SixtyThreeBits.Libraries
 {
@@ -336,6 +336,18 @@ namespace SixtyThreeBits.Libraries
 
     public static class PriceToWordsConverterExtensions
     {
+        /// <summary>
+        /// Convert price in words
+        /// </summary>
+        /// <param name="price">Price numeric value</param>
+        /// <param name="language">Language to use</param>
+        /// <param name="shouldConvertFractionalUnitsToWords">Weather fraction part should also be translated to words or not</param>
+        /// <returns>Price in words</returns>
+        public static string? ConvertPriceToWords(this decimal price, Language language, Currency currency, bool shouldConvertFractionalUnitsToWords = true)
+        {
+            return NumberToWordsConverter.ConvertPriceToWords(price, language, currency, shouldConvertFractionalUnitsToWords);
+        }
+
         /// <summary>
         /// Convert price in words
         /// </summary>

@@ -1,5 +1,5 @@
 ﻿using System.Text.RegularExpressions;
-using static SixtyThreeBits.Libraries.Converters.Enums;
+using SixtyThreeBits.Libraries.Converters.Enums;
 
 namespace SixtyThreeBits.Libraries.Converters.Tests.PriceToWordsConverterTests.GeorgianLari
 {

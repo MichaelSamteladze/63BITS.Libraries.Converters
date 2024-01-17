@@ -1,5 +1,5 @@
 ﻿using System.Text.RegularExpressions;
-using static SixtyThreeBits.Libraries.Converters.Enums;
+using SixtyThreeBits.Libraries.Converters.Enums;
 
 namespace SixtyThreeBits.Libraries.Converters.Tests.PriceToWordsConverterTests.Georgiandollar
 {
@@ -32,7 +32,7 @@ namespace SixtyThreeBits.Libraries.Converters.Tests.PriceToWordsConverterTests.G
             decimal inputPrice;
             decimal.TryParse(inputString, out inputPrice);
             var result = PriceToWordsConverter.ConvertPriceToWords(inputPrice: inputPrice, language: Language.English, currency: Currency.USDollar, shouldConvertToWordsWhenZero: true);
-            Assert.AreEqual(expected: expectedResult, actual: result);
+            Assert.AreEqual(expected: expectedResult, actual: result);            
         }
     }
 

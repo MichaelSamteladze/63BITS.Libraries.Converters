@@ -1,5 +1,5 @@
 ﻿using System.Text.RegularExpressions;
-using static SixtyThreeBits.Libraries.Converters.Enums;
+using SixtyThreeBits.Libraries.Converters.Enums;
 
 namespace SixtyThreeBits.Libraries.Converters.Tests.NumberToWordsConverterTests
 {
@@ -159,11 +159,12 @@ namespace SixtyThreeBits.Libraries.Converters.Tests.NumberToWordsConverterTests
         [DataRow("1 000 000 000 000 000", "ერთი კვადრილიონი")]
         [DataRow("1 041 063 008 227 705", "ერთი კვადრილიონ ორმოცდაერთი ტრილიონ სამოცდასამი მილიარდ რვა მილიონ ორას ოცდაშვიდი ათას შვიდას ხუთი")]
         [DataRow("951 705 000 344 085 969", "ცხრაას ორმოცდათერთმეტი კვადრილიონ შვიდას ხუთი ტრილიონ სამას ორმოცდაოთხი მილიონ ოთხმოცდახუთი ათას ცხრაას სამოცდაცხრა")]
+        [DataRow("-1970","მინუს ერთი ათას ცხრაას სამოცდაათი")]
         #endregion
         public void Test(string inputString, string expectedResult)
         {
             inputString = Regex.Replace(inputString, @"\s+", "");
-            var result = NumberToWordsConverter.ConvertNumberToWords(inputString: inputString, language: Language.Georgian);
+            var result = NumberToWordsConverter.ConvertNumberToWords(inputNumber: inputString, language: Language.Georgian);
             Assert.AreEqual(expected: expectedResult, actual: result);
         }
     }

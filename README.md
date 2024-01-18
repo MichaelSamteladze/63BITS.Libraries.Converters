@@ -21,7 +21,7 @@ var result = NumberToWordsConverter.ConvertNumberToWords(inputNumber: "438", lan
 
 var result = NumberToWordsConverter.ConvertNumberToWords(inputNumber: 438, language: Language.English);
 
-var result 438.ConvertNumberToWords(language: Language.English);
+var result = 438.ConvertNumberToWords(language: Language.English);
 ```
 
 **NumberToWordsConverter.ConvertNumberToWords** method accepts two parameters: 
